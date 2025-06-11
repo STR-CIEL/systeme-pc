@@ -1,0 +1,682 @@
+
+:root{
+    /* colors */
+    --color-dark-black: #111;
+    --color-light-black: #1d1d1d;
+    --color-background-body: rgb(245, 245, 245);
+    --color-white: #fff;
+    --color-gray: #4A4C56;
+    --color-gray-light: #777980;
+    --color-SuperGray-light: #e6eff4;
+    --color-green: #19A041;
+
+    /* fonts */
+    --font-inter: "Inter", Arial, Helvetica, sans-serif;
+    --font-open-sans: "open sans", Arial, Helvetica, sans-serif;
+}
+
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;;
+    scroll-padding-top: 130px; /* Ajuste cette valeur selon la hauteur de ton header */
+}
+
+
+body{
+    background-color:   var(--color-background-body);
+    font-family: var(--font-inter);
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+a:focus, button:focus {
+    outline: 2px solid var(--color-green);
+    outline-offset: 2px;
+}
+
+/* Mobile first ! */
+
+
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    padding: 0 20px;
+    position: static;
+    background-color: #fff;
+    z-index: 99;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.topbar .logo img{
+    width: 60px;
+}
+
+.topbar .logo{
+    display: flex;
+    align-items: center;
+}
+
+
+.toggler-container button{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 2px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.menu{
+    display: none;
+}
+
+.topbar .navigation{
+    text-decoration: none;
+    position: absolute;
+    background-color: #fff;
+    width: 75%;
+    height: 300px;
+    right: 0;
+    top: calc(100%);
+    padding: 10px 0 0 0px;
+    transition: transform 0.4s ease-out;
+    transform:  translateX(100%);
+}
+
+.navigation.active{
+    transform:  translateX(0%);
+}
+
+.topbar .navigation a{
+    display: block;
+    text-decoration: none;
+    color: var(--color-dark-black); 
+    padding: 25px 20px;
+    font-weight: 600;
+    font-size: 17px;
+    position: relative;
+}
+
+.topbar .navigation a::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-SuperGray-light);
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+}
+
+.hidden{
+    overflow: hidden;
+}
+
+.my_cover{
+    width: 100%;
+    max-height: 450px
+}
+
+.banniere{
+    width: 100%;
+    margin-top: 30px;
+    max-height: 450px
+}
+
+.wrapper{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-container{
+    position: relative;
+}
+
+.img-informatique{
+    width: 250px;
+    height: 170px;
+    border-radius: 5px;
+    border: 4px solid var(--color-green);
+    margin-top: 50px;
+    background-color: #46AC34;
+    object-fit: contain;
+}
+
+.img-apropo{
+    width: 250px;
+    height: 170px;
+    border-radius: 5px;
+    border: 4px solid var(--color-green);
+    margin-top: 50px;
+    background-color: #46AC34;
+    object-fit: contain;
+    
+}
+
+.img-repar{
+    width: 250px;
+    border-radius: 5px;
+    border: 4px solid var(--color-green);
+    margin-top: 50px;
+    scroll-behavior: smooth;
+}
+
+
+
+
+.btn-repar{
+    border: none;
+    padding: 8px;
+    border-radius: 0px 5px 0px 5px;
+    background: var(--color-green);
+    color: #fff;
+    font-weight: 600;
+    position: absolute;
+    top: 60px;
+    left: 2px;
+    font-size: 14px;
+}
+
+.btn-pc a, .btn-repar a{
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+
+.btn-voirpc{
+    display: inline-block;
+    background: #19A041;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px 0 8px 0px;
+    font-weight: 600;
+    font-size: 16px;
+    width: 150px;
+    position: relative;
+    bottom: 50px;
+    text-align: center;
+}
+
+
+
+.btn-pc {
+  margin-top: 20px; /* pousse ce bouton vers le bas */
+  align-self: center; /* centre le bouton dans la carte */
+  background-color: var(--color-green); /* exemple : bleu */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: left;
+}
+
+.btn-pc:hover {
+    transform: scale(1.0s);
+    background-color: #3bbf00;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: #4ccf00 0px 0px 10px;
+
+}
+
+
+.features {
+  display: flex; /* Affiche les éléments enfants en ligne (flexbox) */
+  justify-content: space-between; /* Espace égal entre les colonnes */
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si trop larges */
+  gap: 30px; /* Espace fixe entre chaque carte, horizontal et vertical */
+  margin-bottom: 50px; /* Espace sous le bloc des cartes, à ajuster pour réduire l’espace */
+}
+
+.feature-card {
+  flex: 1; /* Chaque carte prend une part égale de l’espace disponible */
+  min-width: 300px; /* Largeur minimale d’une carte pour garder la lisibilité */
+  max-width: 32%; /* Largeur maximale pour que 3 cartes tiennent côte à côte */
+  background: var(--color-white); /* Couleur de fond blanche */
+  color: var(--color-gray); /* Couleur du texte (variable CSS) */
+  padding: 20px; /* Espace intérieur autour du contenu */
+  border-radius: 8px; /* Coins arrondis pour un look plus doux */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombre légère sous la carte */
+  text-align: left; /* Alignement du texte à gauche */
+  box-sizing: border-box; /* Inclut padding et border dans la largeur */
+  display: flex; /* Permet de gérer l’agencement interne avec flexbox */
+  flex-direction: column; /* Organise les enfants en colonne verticale */
+  justify-content: space-between; /* Espace entre les éléments pour répartir verticalement */
+}
+
+.title-question{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.icon-laptop{
+    float: right;
+}
+
+.icon-repair{
+    float: right;
+}
+
+
+.band{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    height: 80px;
+    background-color: var(--color-white);
+    border-radius: 5px;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sous-band{
+    width: 900px;
+    display: flex;
+    justify-content: space-evenly;
+ }
+ 
+
+.bloc-gauche{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 92px;
+}
+
+
+.bloc-droit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 92px;
+}
+
+
+.line{
+    display: block;
+    height: 80%;
+    margin-top: 8px;
+    width: 2px;
+    background: var(--color-gray);
+    opacity: 0.1;
+}
+
+.title-contact{
+    margin-top: 40px;
+}
+
+.para-contact{
+    color: var(--color-gray);
+    line-height: 1.5;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.contact{
+    background: var(--color-white);
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    width: calc(100% - 10%);
+
+}
+
+.contact > p{
+    padding-bottom: 10px;
+    color: var(--color-dark-black);
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+
+.bloc-contact{
+    margin:  20px;
+    padding: 10px;
+}
+
+.text-contact{
+    color: var(--color-gray-light);
+    font-size: 16px;
+    line-height: 1.8;
+    text-decoration: none;
+}
+
+.no-decoration{
+    text-decoration: none;
+}
+
+h3{
+    text-align: center;
+    padding: 20px 0 20px;
+    font-size: 24px;
+}
+
+.hours{
+    background: rgb(25, 160, 65);
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: calc(100% - 10%);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-align: center;
+    
+}
+
+.hours h3{
+    color: var(--color-white);
+}
+
+.hours ul{
+    list-style: none;
+    font-size: 18px;
+    color: var(--color-white);
+}
+
+.hours li{
+    margin-bottom: 30px;
+}
+
+
+/* Section FAQ */
+
+.faq{
+    max-width: 800px;
+    margin: auto;
+}
+
+.faq-section{
+    width: calc(100% - 30px);
+    margin: 0 auto;
+    padding: 20px 0px 60px;
+    color: var(--color-dark-black);
+}
+
+.faq-section__header{
+    text-align: center;
+}
+
+.faq-section__surtitle{
+    font-family: var(--font-open-sans), sans-serif;
+    margin-bottom: 30px;
+    color: var(--color-gray);
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+
+.faq-section__title{
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.faq__question{
+    border: 2px solid var(--color-SuperGray-light);
+    padding: 25px;
+    background-color: var(--color-white);
+    width: 100%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.faq__question-toggler{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--color-gray-light);
+    margin: 0 auto;
+}
+
+.faq__question-toggler-icon{
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.faq__question-toggler-text{
+    font-family: var(--font-inter);
+    font-weight: 600;
+    margin-left: 10px;
+
+}
+
+details[open] .faq__question-toggler-icon{
+    transform: rotate(180deg);
+}
+
+
+
+.faq__question-text{
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+details > summary {
+    list-style: none;
+  }
+  
+  details > summary::marker, /* Latest Chrome, Edge, Firefox */ 
+  details > summary::-webkit-details-marker /* Safari */ {
+    display: none;
+  }
+
+/* Footer */
+
+footer{
+    margin-top: 30px;
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    background-color: var(--color-white);
+}
+
+footer h4{
+    color: var(--color-dark-black);
+}
+
+footer p{
+    color: var(--color-gray-light);
+    line-height: 1.5;
+    margin: 20px auto;
+    width: calc(100% - 20%);
+
+}
+
+
+.copy{
+    font-size: 12px;
+    position: relative;
+    top: 30px;
+}
+
+
+/* Mode Desktop */
+
+@media screen and (min-width: 814px){
+
+    .topbar{
+        justify-content: space-around;
+        display: flex;
+        align-items: center;
+        padding: 0 50px;
+    }
+
+    .menu{
+        display: block;
+        padding: 11px 30px;
+        border-radius: 3px;
+        position: sticky;
+        top: 0;
+        left: 0;
+        
+    }
+
+    .menu a{
+        padding: 10px 20px;
+        color: #444;
+        margin-right: 5px;
+    }
+
+    .menu .active, .menu a:hover{
+
+        color: #111;
+    }
+
+
+    .menu .active{
+      
+        padding-left: 0;
+       
+    }
+
+    .features{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .feature-card{
+        width: 400px;
+        margin-left: 60px;
+        margin-top: 90px;
+    
+    }
+
+
+    .btn-voirpc{
+     
+        position: relative;
+        left: 150px;
+    }
+
+    .btn-voirpc:hover{
+        background-color: rgba(25, 160, 65, 0.9);
+     }
+
+    .features{
+        flex-wrap: wrap;
+    }
+
+
+    .img-container{
+
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navigation, .toggler-container{
+        display: none;
+    }
+   
+
+    .topbar{
+        display: flex;
+        align-items: center;
+        padding: 0 50px;
+     }
+     
+     .menu .img-icon{
+        width: 16px;
+        position: relative;
+        top: 2px;
+     }
+
+    .nav a{
+        text-decoration: none;
+        color: #111;
+        padding: 0 15px;
+    }
+
+    .col-2{
+       display: flex;
+       flex-direction: row;
+       
+    }
+
+    .hours{
+        margin-left: 92px;
+
+    }
+
+
+    .faq-section{
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0px 0px 60px;
+        color: var(--color-dark-black);
+    }
+
+  
+    .img-container{
+        transform: translateY(-30px);
+    }
+
+    footer{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        
+    }
+
+    .col1-footer, .col2-footer, .col3-footer{
+        width: 30%;
+    }
+
+    .faq-section__title{
+        margin-top: 30px;
+    }
+
+
+
+    .container-footer{
+        display: flex;
+        flex-direction: row;
+        width: 1020px;
+        
+        justify-content: space-around;
+    }
+ 
+ 
+}
+@media screen and (min-width: 768px) {
+    .features {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+}
+
+
