@@ -72,26 +72,31 @@ a:focus, button:focus {
 .toggler-container button{
     cursor: pointer;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     border: none;
     padding: 2px;
     border-radius: 3px;
     background-color: #fff;
-}
 
+
+}
+.rs{
+        display: none !important;
+}
 .menu{
     display: none;
 }
 
 .topbar .navigation{
+
     text-decoration: none;
     position: absolute;
     background-color: #fff;
-    width: 75%;
-    height: 300px;
+    width: 70%;
+    height: 230px;
     right: 0;
-    top: calc(100%);
+    top: 110px;
     padding: 10px 0 0 0px;
     transition: transform 0.4s ease-out;
     transform:  translateX(100%);
@@ -525,6 +530,7 @@ footer p{
 @media screen and (min-width: 814px){
 
     .topbar{
+        position:sticky;
         justify-content: space-around;
         display: flex;
         align-items: center;
@@ -532,11 +538,12 @@ footer p{
     }
 
     .menu{
+        position: sticky;
         display: block;
         padding: 11px 30px;
         border-radius: 3px;
-        position: sticky;
         top: 0;
+        z-index: 1000;
         left: 0;
         
     }
@@ -550,6 +557,8 @@ footer p{
     .menu .active, .menu a:hover{
 
         color: #111;
+        
+
     }
 
 
@@ -570,6 +579,9 @@ footer p{
         margin-left: 60px;
         margin-top: 90px;
     
+    }
+    .rs{
+        display:flex !important;
     }
 
 
@@ -599,6 +611,7 @@ footer p{
     .navigation, .toggler-container{
         display: none;
     }
+    
    
 
     .topbar{
@@ -611,6 +624,7 @@ footer p{
         width: 16px;
         position: relative;
         top: 2px;
+        
      }
 
     .nav a{
@@ -667,8 +681,6 @@ footer p{
         
         justify-content: space-around;
     }
- 
- 
 }
 @media screen and (min-width: 768px) {
     .features {
