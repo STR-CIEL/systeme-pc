@@ -243,7 +243,7 @@ a:focus, button:focus {
 
 .features {
   display: flex; /* Affiche les éléments enfants en ligne (flexbox) */
-  justify-content: space-between; /* Espace égal entre les colonnes */
+  justify-content: center; /* Espace égal entre les colonnes */
   flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si trop larges */
   gap: 30px; /* Espace fixe entre chaque carte, horizontal et vertical */
   margin-bottom: 50px; /* Espace sous le bloc des cartes, à ajuster pour réduire l’espace */
