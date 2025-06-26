@@ -33,4 +33,23 @@ document.querySelectorAll('a[href^="#title-contact"]').forEach(link => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    let lastScroll = 0;
+    const topbar = document.querySelector('.topbar');
+    if (!topbar) return;
 
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll <= 0) {
+            // Toujours afficher la topbar tout en haut de la page
+            topbar.classList.remove('hide');
+        } else if (currentScroll > lastScroll && currentScroll > 80) {
+            // Scroll vers le bas : cache la topbar
+            topbar.classList.add('hide');
+        } else {
+            // Scroll vers le haut : affiche la topbar
+            topbar.classList.remove('hide');
+        }
+        lastScroll = currentScroll;
+    });
+});

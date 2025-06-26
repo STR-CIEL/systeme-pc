@@ -23,13 +23,20 @@
 
 html {
     scroll-behavior: smooth;;
-    scroll-padding-top: 130px; /* Ajuste cette valeur selon la hauteur de ton header */
+    scroll-padding-top: 130px; 
 }
-
+html, body {
+   
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
 
 body{
     background-color:   var(--color-background-body);
     font-family: var(--font-inter);
+    overflow-x: hidden;
+
 }
 
 a{
@@ -37,28 +44,35 @@ a{
     color: inherit;
     outline: none;
 }
-a:focus, button:focus {
-    outline: 2px solid var(--color-green);
-    outline-offset: 2px;
-}
+
 
 /* Mobile first ! */
 
 
 .topbar{
+    transition: top 0.3s ease-in-out;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
     width: 100%;
     padding: 0 20px;
-    position: static;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+
     background-color: #fff;
     z-index: 99;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
+    
+
 }
 
+.topbar.hide{
+    top: -120px; 
+}
 .topbar .logo img{
     width: 60px;
 }
@@ -138,7 +152,7 @@ a:focus, button:focus {
 
 .banniere{
     width: 100%;
-    margin-top: 30px;
+    margin-top: 140px;
     max-height: 450px
 }
 
@@ -147,6 +161,7 @@ a:focus, button:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 30px;
 }
 
 .img-container{
@@ -251,7 +266,7 @@ a:focus, button:focus {
 
 .feature-card {
   flex: 1; /* Chaque carte prend une part égale de l’espace disponible */
-  min-width: 300px; /* Largeur minimale d’une carte pour garder la lisibilité */
+  min-width: 400px; /* Largeur minimale d’une carte pour garder la lisibilité */
   max-width: 32%; /* Largeur maximale pour que 3 cartes tiennent côte à côte */
   background: var(--color-white); /* Couleur de fond blanche */
   color: var(--color-gray); /* Couleur du texte (variable CSS) */
@@ -263,6 +278,11 @@ a:focus, button:focus {
   display: flex; /* Permet de gérer l’agencement interne avec flexbox */
   flex-direction: column; /* Organise les enfants en colonne verticale */
   justify-content: space-between; /* Espace entre les éléments pour répartir verticalement */
+}
+.feature-card:hover {
+    transform: scale(1.02); /* Légère augmentation de la taille au survol */
+    transition: transform 0.3s ease; /* Transition douce pour l’effet de zoom */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Ombre plus marquée au survol */
 }
 
 .title-question{
@@ -530,7 +550,7 @@ footer p{
 @media screen and (min-width: 814px){
 
     .topbar{
-        position:sticky;
+        position:fixed;
         justify-content: space-around;
         display: flex;
         align-items: center;
@@ -578,8 +598,15 @@ footer p{
         width: 400px;
         margin-left: 60px;
         margin-top: 90px;
+        justify-content: center;
+        align-items: center;
     
     }
+    .feature-card p{
+        text-align: center;
+    }
+
+    
     .rs{
         display:flex !important;
     }
@@ -692,3 +719,31 @@ footer p{
 }
 
 
+@media screen and (max-width: 813px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-card {
+        min-width: 0;
+        max-width: 80%;
+        margin: 30px auto;
+        align-items: center;
+        text-align: center;
+    }
+    .img-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .feature-card img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+        height: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
