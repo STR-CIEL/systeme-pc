@@ -1,3 +1,5 @@
+
+
 const navToggler = document.querySelector(".toggler-container");
 
 const navigation = document.querySelector(".navigation");
@@ -20,6 +22,22 @@ if (navToggler && navigation) {
 }
 
 
+// Close the navigation menu when clicking outside of it
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector('.navigation');
+    const toggler = document.querySelector('.toggler-container');
+    // Si le menu est ouvert et qu'on clique en dehors du menu ou du bouton
+    if (nav && nav.classList.contains('active')) {
+        if (
+            !nav.contains(event.target) &&
+            !toggler.contains(event.target)
+        ) {
+            nav.classList.remove('active');
+        }
+    }
+});
+
+
 
 
 // Smooth scroll 
@@ -33,6 +51,7 @@ document.querySelectorAll('a[href^="#title-contact"]').forEach(link => {
   });
 });
 
+// Hide topbar on scroll down, show on scroll up
 document.addEventListener('DOMContentLoaded', function() {
     let lastScroll = 0;
     const topbar = document.querySelector('.topbar');
